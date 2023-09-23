@@ -35,7 +35,7 @@ app.use(requestLogger); // подключаем логгер запросов
 app.use(errorLogger); // подключаем логгер ошибок
 
 app.use(errors());
-// app.use(require('./middlewares/errorHandler'));
+app.use(require('./middlewares/errorHandler'));
 
 app.listen(PORT, () => {
   console.log('Сервер запущен');
