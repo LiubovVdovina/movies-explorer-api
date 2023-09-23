@@ -2,6 +2,10 @@ const allowedCors = [
   // зесь будут ip и url сервера с фронтендом
   'http://localhost:3000',
   'http://localhost:3001',
+  'https://api.movielife.nomoredomainsrocks.ru',
+  'http://api.movielife.nomoredomainsrocks.ru',
+  'https://movielife.nomoredomainsrocks.ru',
+  'http://api.movielife.nomoredomainsrocks.ru',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';

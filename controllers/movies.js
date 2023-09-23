@@ -4,8 +4,9 @@ const ForbiddenError = require('../errors/forbidden-err');
 const BadRequestError = require('../errors/bad-request-err');
 const NotFoundError = require('../errors/not-found-err');
 
-function getMovies(req, res, next) {
-  Movie.find({})
+function getYourMovies(req, res, next) {
+  const owner = req.user._id;
+  Movie.find({ owner })
     .then((movies) => res.status(200).send({ movies }))
     .catch(next);
 }
@@ -17,7 +18,7 @@ function createMovie(req, res, next) {
     country, director,
     duration, year,
     description, image,
-    trailer, nameRU, nameEN,
+    trailerLink, nameRU, nameEN,
     thumbnail, movieId,
   } = req.body;
   const owner = req.user._id;
@@ -29,7 +30,7 @@ function createMovie(req, res, next) {
       year,
       description,
       image,
-      trailer,
+      trailerLink,
       nameRU,
       nameEN,
       thumbnail,
@@ -72,5 +73,5 @@ function deleteMovie(req, res, next) {
 }
 
 module.exports = {
-  getMovies, createMovie, deleteMovie,
+  getYourMovies, createMovie, deleteMovie,
 };
